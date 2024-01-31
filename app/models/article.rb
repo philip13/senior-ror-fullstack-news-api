@@ -3,19 +3,11 @@ require 'net/http'
 
 class Article < ApplicationRecord
 
-  def self.feed_articles
-    api_key = ENV['API_KEY']
-    uri = URI("https://newsapi.org/v2/top-headlines?country=us&apiKey=#{ENV['API_KEY']}")
-    res = Net::HTTP.get_response(uri)
-    articles = res.is_a?(Net::HTTPSuccess) ? res.body : []
-    news_array = JSON.parse(articles)["articles"]
-    serialize(news_array)
-  end
+  def self.seed_articles
+    res = Newsapi.new.get_top_headlines
+    news_array = JSON.parse(res)["articles"]
 
-
-  private
-  def self.serialize articles
-    articles = articles.map { |a|  {
+    articles = news_array.map { |a|  {
         author: a["author"],
         title: a["title"] ,
         description: a["description"],
