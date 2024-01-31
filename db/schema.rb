@@ -10,30 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_30_182817) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_30_190242) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "agencies", force: :cascade do |t|
-    t.string "category"
-    t.string "country"
-    t.string "description"
-    t.string "source_id"
-    t.string "language"
-    t.string "name"
-    t.string "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "articles", force: :cascade do |t|
+    t.string "author"
     t.string "title"
     t.string "description"
     t.string "url"
     t.string "url_to_image"
-    t.date "published_at"
-    t.string "author"
-    t.integer "agency_id"
+    t.datetime "published_at"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: title_one
+  description: description_one
+  url: url:_one
+  url_to_image: url_to_image_one
+  published_at: 2024-01-30
+  author: MyString
+  # agency_id: 1
+
+two:
+  title: title_two
+  description: description_two
+  url: url_two
+  url_to_image: url_to_image_two
+  published_at: 2024-01-30
+  author: MyString
+  # agency_id: 1
